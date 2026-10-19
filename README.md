@@ -36,13 +36,15 @@ pip install pandas numpy scikit-learn xgboost optuna streamlit matplotlib seabor
 
 # Lancer le dashboard interactif
 streamlit run app.py
+```
 
-```markdown
-# 🚗 Auto Insurance Pricing using Machine Learning
+## ENGLISH 
+
+# Auto Insurance Pricing using Machine Learning
 
 This repository contains an end-to-end Machine Learning pipeline for calculating **pure premiums** in auto insurance. It follows the industry-standard actuarial approach by decoupling the risk into two dimensions: claim **frequency** and claim **severity**.
 
-## 🎯 Context and Objectives
+## Context and Objectives
 The goal is to estimate the expected cost of claims for a given policyholder. The pure premium is mathematically modeled as:
 `Pure Premium = P(Claim > 0) × E[Amount | Claim > 0]`
 
@@ -50,13 +52,13 @@ To achieve this, two distinct models were developed:
 1. **Frequency Model (Classification):** Predicts the probability of a client filing at least one claim (handling extreme class imbalance at ~5.8%).
 2. **Severity Model (Regression):** Predicts the expected cost of the claim if an accident occurs (handling highly right-skewed financial distributions using Log-normal corrections and Gamma objectives).
 
-## 🛠️ Tech Stack
+## Tech Stack
 * **Language:** Python
 * **Modeling:** Scikit-Learn, XGBoost
 * **Optimization:** Optuna (Bayesian Optimization), SciPy (Mathematical Blending)
 * **Dashboard:** Streamlit, Matplotlib, Seaborn
 
-## 📂 Project Structure
+## Project Structure
 The pipeline is modularized into 5 steps to strictly prevent data leakage and ensure reproducibility:
 
 * `step_01_EDA.py`: Exploratory Data Analysis (target distributions, multicollinearity).
@@ -66,7 +68,7 @@ The pipeline is modularized into 5 steps to strictly prevent data leakage and en
 * `step_05_prime_calcul_and_submission.py`: Actuarial profitability audit (Loss Ratio) and final predictions.
 * `app.py`: Interactive Streamlit dashboard showcasing the methodology and results.
 
-## 🚀 How to Run
+## How to Run
 ```bash
 # Clone the repository
 git clone [https://github.com/your-profile/auto-insurance-pricing-ml.git](https://github.com/your-profile/auto-insurance-pricing-ml.git)
