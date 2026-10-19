@@ -188,7 +188,7 @@ elif step == "4. Claim Severity Model":
     st.markdown('<p class="sub-header">Handling the Skewed Distribution</p>', unsafe_allow_html=True)
     st.markdown("""
     To model the heavy right tail of claim amounts, two approaches were ensembled:
-    - **Ridge Regression on Log(Target)**: The target is logged to achieve normality. *Crucial Actuarial Step:* When converting back via $\exp()$, Jensen's inequality states that $\mathbb{E}[\exp(X)] \neq \exp(\mathbb{E}[X])$. We must apply the variance correction: $\exp(\hat{y} + \frac{\sigma^2}{2})$.
+    - **Ridge Regression on Log(Target)**: The target is logged to achieve normality. *Crucial Actuarial Step:* When converting back via $\exp()$, Jensen's inequality states that $\mathbb{E}[\exp(X)] \neq \exp(\mathbb{E}[X])$. We must apply the variance correction.
     - **XGBoost with Gamma Objective**: Natively handles right-skewed distributions (`objective: reg:gamma`).
     
     Both models underwent a **Scale Realignment** post-prediction to ensure that $\sum \text{Predicted Severity} = \sum \text{Actual Severity}$ on the training fold.
