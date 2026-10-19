@@ -66,7 +66,7 @@ The pipeline is modularized into 5 steps to strictly prevent data leakage and en
 * `step_03_classification_model.py`: Model training, probability calibration, and blending (Logistic Regression + XGBoost).
 * `step_04_regression_model.py`: Cost modeling, scale realignment, and Jensen's inequality correction.
 * `step_05_prime_calcul_and_submission.py`: Actuarial profitability audit (Loss Ratio) and final predictions.
-* `app.py`: Interactive Streamlit dashboard showcasing the methodology and results.
+* `step_06_dashboard.py`: Interactive Streamlit dashboard showcasing the methodology and results.
 
 ## How to Run
 ```bash
