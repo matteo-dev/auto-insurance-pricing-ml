@@ -37,3 +37,42 @@ pip install pandas numpy scikit-learn xgboost optuna streamlit matplotlib seabor
 # Lancer le dashboard interactif
 streamlit run app.py
 
+```markdown
+# 🚗 Auto Insurance Pricing using Machine Learning
+
+This repository contains an end-to-end Machine Learning pipeline for calculating **pure premiums** in auto insurance. It follows the industry-standard actuarial approach by decoupling the risk into two dimensions: claim **frequency** and claim **severity**.
+
+## 🎯 Context and Objectives
+The goal is to estimate the expected cost of claims for a given policyholder. The pure premium is mathematically modeled as:
+`Pure Premium = P(Claim > 0) × E[Amount | Claim > 0]`
+
+To achieve this, two distinct models were developed:
+1. **Frequency Model (Classification):** Predicts the probability of a client filing at least one claim (handling extreme class imbalance at ~5.8%).
+2. **Severity Model (Regression):** Predicts the expected cost of the claim if an accident occurs (handling highly right-skewed financial distributions using Log-normal corrections and Gamma objectives).
+
+## 🛠️ Tech Stack
+* **Language:** Python
+* **Modeling:** Scikit-Learn, XGBoost
+* **Optimization:** Optuna (Bayesian Optimization), SciPy (Mathematical Blending)
+* **Dashboard:** Streamlit, Matplotlib, Seaborn
+
+## 📂 Project Structure
+The pipeline is modularized into 5 steps to strictly prevent data leakage and ensure reproducibility:
+
+* `step_01_EDA.py`: Exploratory Data Analysis (target distributions, multicollinearity).
+* `step_02_data_preprocessing.py`: Domain-specific feature engineering and Scikit-Learn pipelines (Target Encoding for Zip Codes, robust imputation).
+* `step_03_classification_model.py`: Model training, probability calibration, and blending (Logistic Regression + XGBoost).
+* `step_04_regression_model.py`: Cost modeling, scale realignment, and Jensen's inequality correction.
+* `step_05_prime_calcul_and_submission.py`: Actuarial profitability audit (Loss Ratio) and final predictions.
+* `app.py`: Interactive Streamlit dashboard showcasing the methodology and results.
+
+## 🚀 How to Run
+```bash
+# Clone the repository
+git clone [https://github.com/your-profile/auto-insurance-pricing-ml.git](https://github.com/your-profile/auto-insurance-pricing-ml.git)
+
+# Install dependencies
+pip install pandas numpy scikit-learn xgboost optuna streamlit matplotlib seaborn scipy
+
+# Launch the interactive dashboard
+streamlit run app.py
