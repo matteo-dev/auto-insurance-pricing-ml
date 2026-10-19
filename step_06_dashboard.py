@@ -172,7 +172,7 @@ elif step == "3. Claim Frequency Model":
     """)
     
     # Emplacements prévus pour les résultats de resultats_etape3/
-    path_roc_cal = 'resultats_etape3/ROC_and_Calibration.png' 
+    path_roc_cal = 'ROC_and_Calibration.png' 
     # Fallback sur le dossier racine si besoin
     if not os.path.exists(path_roc_cal): path_roc_cal = 'ROC_and_Calibration.jpg'
     
@@ -194,7 +194,7 @@ elif step == "4. Claim Severity Model":
     Both models underwent a **Scale Realignment** post-prediction to ensure that $\sum \text{Predicted Severity} = \sum \text{Actual Severity}$ on the training fold.
     """)
     
-    path_diag_grav = 'resultats_etape4/diagnostic_gravite.png'
+    path_diag_grav = 'diagnostic_gravite.png'
     if not os.path.exists(path_diag_grav): path_diag_grav = 'diagnostic_gravite.jpg'
         
     display_image(path_diag_grav, "Figure 4: Severity distribution and Actual vs. Predicted scatter plot")
@@ -214,7 +214,7 @@ elif step == "5. Financial Audit & Premium":
     A model is only viable if the **Sum of Collected Premiums $\ge$ Sum of Incurred Claims** (Loss Ratio $\le 100\%$).
     """)
     
-    path_audit = 'resultats_etape5/audit_financier_validation.png'
+    path_audit = 'audit_financier_validation.png'
     if not os.path.exists(path_audit): path_audit = 'audit_financier_validation.png'
         
     display_image(path_audit, "Figure 5: Predicted Premiums Distribution and Global Financial Balance")
