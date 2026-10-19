@@ -1,0 +1,6 @@
+Modèle,RMSE (€),MAE (€),Moyenne prédite (€)
+Baseline (Moyenne),1490.53,951.91,1772.24
+Baseline (Médiane),1583.38,824.54,1236.0
+Ridge Log (Corrigé + Réaligné),1477.45,932.73,1757.16
+XGBoost Gamma (Réaligné),1480.8,930.5,1767.57
+Ensemble (0.75R + 0.25X),1477.03,931.44,1759.75
